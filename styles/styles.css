@@ -109,7 +109,39 @@ body::before {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(1rem, 0.5rem + 1vw, 2rem);
+}
+
+/* ===== СТИЛИ ДЛЯ ПРАКТИЧЕСКОГО ЗАНЯТИЯ ===== */
+
+/* Skip-link для доступности */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 10000;
+    padding: .5rem .75rem;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    border-radius: .5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible { 
+    top: 1rem; 
+}
+
+/* Улучшенный фокус */
+:focus-visible { 
+    outline: 3px solid var(--accent-color); 
+    outline-offset: 2px; 
+}
+
+a, button, input, textarea { 
+    outline-offset: 2px; 
 }
 
 /* Кнопка переключения темы */
@@ -145,13 +177,18 @@ body::before {
     background: var(--header-bg);
     color: var(--primary-color);
     padding: 1rem 0;
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--glass-effect);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    
+    /* Safe areas для вырезов */
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+    padding-left: calc(20px + env(safe-area-inset-left, 0px));
+    padding-right: calc(20px + env(safe-area-inset-right, 0px));
 }
 
 .header-content {
@@ -225,6 +262,11 @@ body::before {
     color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: var(--neon-glow);
+}
+
+/* Улучшенная семантика main */
+main {
+    min-height: 60vh;
 }
 
 /* Герой секция с стеклянным эффектом */
@@ -312,14 +354,15 @@ body::before {
     box-shadow: var(--neon-glow);
 }
 
-.profile-photo {
+/* Исправления для изображений */
+.profile-photo,
+.project-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: all 0.6s ease;
-    filter: grayscale(100%) contrast(120%) brightness(0.9);
+    aspect-ratio: 1;
 }
 
 .profile-image:hover .profile-photo {
@@ -333,7 +376,7 @@ body::before {
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
     margin-bottom: 20px;
     font-weight: 300;
     letter-spacing: 2px;
@@ -388,7 +431,7 @@ body::before {
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 1.5rem + 1.5vw, 2.5rem);
     margin-bottom: 60px;
     color: var(--primary-color);
     font-weight: 300;
@@ -477,12 +520,37 @@ body::before {
     animation: shimmer 2s infinite;
 }
 
-/* Проекты с 3D эффектом */
+/* Контейнерные запросы для проектов */
+.projects-container {
+    container-type: inline-size;
+}
+
+/* Проекты с адаптивной сеткой */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 40px;
     margin-top: 60px;
+}
+
+/* Адаптивная сетка с контейнерными запросами */
+@supports (container-type: inline-size) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    }
+    
+    @container (min-width: 800px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+        }
+    }
+}
+
+/* Прогрессивное улучшение для старых браузеров */
+@supports not (container-type: inline-size) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 }
 
 .project-card {
@@ -537,19 +605,24 @@ body::before {
     transition: all 0.4s ease;
 }
 
+/* Запасной контент если изображения не загружаются */
+.project-image::before {
+    content: "🖼️ Изображение проекта";
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    position: absolute;
+    z-index: 0;
+}
+
+.project-image img {
+    position: relative;
+    z-index: 1;
+}
+
 .project-card:hover .project-image {
     transform: scale(1.05);
     border-color: var(--accent-color);
-}
-
-.project-photo {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    transition: all 0.6s ease;
-    filter: grayscale(100%) contrast(120%) brightness(0.9);
 }
 
 .project-card:hover .project-photo {
@@ -581,6 +654,7 @@ body::before {
     min-height: 60px;
     opacity: 0.9;
     font-size: 1rem;
+    max-width: 65ch;
 }
 
 .project-tech {
@@ -680,6 +754,9 @@ body::before {
     border-top: 1px solid var(--glass-effect);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    
+    /* Safe area для жестовых панелей */
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-subtitle {
@@ -689,35 +766,6 @@ body::before {
     letter-spacing: 1px;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .profile-image {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-list {
-        gap: 15px;
-    }
-    
-    .nav-link {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-}
 /* Стили для страницы проектов */
 .projects .projects-grid {
     margin-top: 40px;
@@ -955,6 +1003,33 @@ body::before {
 
 /* Адаптивность для всех страниц */
 @media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-list {
+        gap: 15px;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
     .diary-content,
     .contacts-content {
         grid-template-columns: 1fr;
@@ -985,49 +1060,20 @@ body::before {
         gap: 15px;
     }
 }
-/* Добавь эти исправления в конец styles.css */
 
 /* Исправление для навигации - убираем сбивание курсора */
 .nav-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 400;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    position: relative;
-    overflow: hidden;
-    background: var(--glass-effect);
-    /* Убираем transform, который сбивает курсор */
     transform: none !important;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--glass-effect), transparent);
-    transition: left 0.6s;
-}
-
-.nav-link:hover::before {
-    left: 100%;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--accent-color);
-    /* Убираем transform для навигации */
-    box-shadow: var(--neon-glow);
+    transform: translateY(-2px) !important;
 }
 
 /* Исправление для иконок контактов */
 .contact-icon {
-    width: 20px !important; /* Фиксированный размер */
+    width: 20px !important;
     height: 20px !important;
     flex-shrink: 0;
     transition: all 0.3s ease;
@@ -1039,32 +1085,23 @@ body::before {
 }
 
 .contact-item:hover .contact-icon {
-    transform: scale(1.1); /* Уменьшенная анимация */
+    transform: scale(1.1);
 }
 
-/* Убираем transform для элементов, которые сбивают курсор */
+/* Упрощаем анимации для стабильности */
 .progress-item,
 .course-item,
 .contact-item {
-    transform: none !important; /* Отключаем трансформации */
+    transform: none !important;
     transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
 }
 
 .progress-item:hover,
 .course-item:hover,
 .contact-item:hover {
-    transform: none !important; /* Отключаем трансформации при наведении */
-    box-shadow: var(--neon-glow);
-    border-color: var(--accent-color);
-}
-
-/* Убираем сложные анимации для стабильности */
-.progress-list:hover, 
-.current-courses:hover,
-.contact-form:hover, 
-.contact-info:hover {
     transform: none !important;
     box-shadow: var(--neon-glow);
+    border-color: var(--accent-color);
 }
 
 /* Упрощаем анимации для карточек проектов */
@@ -1074,7 +1111,7 @@ body::before {
 }
 
 .project-card:hover {
-    transform: none !important; /* Убираем 3D эффекты */
+    transform: translateY(-15px) rotateX(5deg) !important;
     box-shadow: var(--neon-glow);
     border-color: var(--accent-color);
 }
@@ -1086,19 +1123,19 @@ body::before {
 }
 
 .profile-image:hover {
-    transform: none !important;
+    transform: scale(1.05) rotate(5deg) !important;
     box-shadow: var(--neon-glow);
     border-color: var(--accent-color);
 }
 
 .profile-image:hover .profile-photo {
-    transform: scale(1.05); /* Упрощенная анимация */
-    filter: grayscale(0%) contrast(100%) brightness(1.05);
+    transform: scale(1.1);
+    filter: grayscale(0%) contrast(100%) brightness(1.1);
 }
 
 /* Убираем сложные градиентные обводки */
 .profile-image::before {
-    display: none; /* Убираем вращающуюся обводку */
+    display: none;
 }
 
 /* Исправляем кнопки */
@@ -1108,7 +1145,7 @@ body::before {
 }
 
 .btn:hover {
-    transform: none !important;
+    transform: translateY(-3px) scale(1.05) !important;
     box-shadow: var(--neon-glow);
 }
 
@@ -1119,7 +1156,7 @@ body::before {
 }
 
 .specialization:hover, .motto:hover {
-    transform: none !important;
+    transform: translateX(10px) !important;
     box-shadow: var(--neon-glow);
 }
 
@@ -1130,19 +1167,566 @@ body::before {
 }
 
 .skill-item:hover {
-    transform: none !important;
+    transform: translateX(10px) !important;
     box-shadow: var(--neon-glow);
 }
 
 /* Убираем сложные анимации статусов */
 .progress-item:hover .progress-status {
-    transform: scale(1.1) !important; /* Упрощенная анимация */
+    transform: scale(1.1) !important;
 }
 
 /* Исправляем форму */
 .form-group input:focus,
 .form-group textarea:focus {
-    transform: none !important; /* Убираем scale при фокусе */
+    transform: scale(1.02) !important;
     border-color: var(--accent-color);
     box-shadow: var(--neon-glow);
+}
+
+/* ===== ДОСТУПНОСТЬ И ОПТИМИЗАЦИЯ ===== */
+
+/* Уважение к снижению движения */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .skill-progress,
+    .project-card,
+    .profile-image,
+    .nav-link,
+    .btn {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Повышенный контраст */
+@media (prefers-contrast: more) {
+    .nav-link,
+    .btn {
+        border: 2px solid var(--primary-color);
+    }
+    
+    .skill-progress {
+        background: var(--primary-color) !important;
+    }
+    
+    .project-card {
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* Минимальная зона клика для touch устройств */
+@media (pointer: coarse) {
+    .nav-link,
+    .btn {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    .theme-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Улучшение видимости фокуса для клавиатурной навигации */
+.keyboard-navigation .nav-link:focus,
+.keyboard-navigation .btn:focus,
+.keyboard-navigation .theme-toggle:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Улучшение контраста для режима высокой контрастности */
+@media (prefers-contrast: high) {
+    .skill-progress {
+        background: var(--primary-color) !important;
+    }
+    
+    .project-card {
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* Оптимизация производительности */
+@media (prefers-reduced-motion: no-preference) {
+    .skill-progress {
+        transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+/* ===== СТИЛИ ДЛЯ ПРАКТИЧЕСКОГО ЗАНЯТИЯ 16 ===== */
+
+/* Улучшенные адаптивные изображения */
+.profile-photo,
+.project-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Фильтры проектов */
+.projects-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--glass-effect);
+    background: var(--glass-effect);
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+/* Статус проекта */
+.project-status {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    background: var(--glass-effect);
+    border: 1px solid var(--glass-effect);
+}
+
+.project-status:contains("✅") {
+    background: rgba(0, 255, 0, 0.1);
+    border-color: #00ff00;
+}
+
+.project-status:contains("🔄") {
+    background: rgba(255, 165, 0, 0.1);
+    border-color: #ffa500;
+}
+
+.project-status:contains("📅") {
+    background: rgba(100, 149, 237, 0.1);
+    border-color: #6495ed;
+}
+
+/* Статистика обучения */
+.learning-stats {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--glass-effect);
+    border-radius: 15px;
+    border: 1px solid var(--glass-effect);
+}
+
+.learning-stats h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid var(--glass-effect);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Планируемые задачи */
+.progress-item.planned {
+    opacity: 0.7;
+}
+
+.progress-item.planned .progress-status {
+    color: #6495ed;
+    text-shadow: 0 0 10px #6495ed;
+}
+
+/* Адаптивная форма */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--glass-effect);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: var(--glass-effect);
+    color: var(--primary-color);
+    transition: var(--transition);
+    font-family: inherit;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-glow);
+    transform: scale(1.02);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+/* Группа чекбокса */
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.2);
+}
+
+/* Счетчик символов */
+.char-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-top: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+/* Сообщения об ошибках */
+.form-error {
+    color: #ff4444;
+    font-size: 0.8rem;
+    min-height: 1rem;
+    margin-top: 0.25rem;
+}
+
+/* Иконки контактов */
+.contact-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Адаптивная таблица */
+.skills-table {
+    margin-top: 2rem;
+}
+
+.table-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--glass-effect);
+    background: var(--glass-effect);
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.tech-table th,
+.tech-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-effect);
+}
+
+.tech-table th {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    color: var(--primary-color);
+    position: sticky;
+    top: 0;
+}
+
+.tech-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tech-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Время ответа */
+.response-time {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--glass-effect);
+    border-radius: 15px;
+    border: 1px solid var(--glass-effect);
+}
+
+.response-time h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.time-info p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .projects-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.75rem;
+        font-size: 16px; /* Предотвращает масштабирование в iOS */
+    }
+    
+    .checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .tech-table th,
+    .tech-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Упрощаем таблицу на мобильных */
+    .tech-table thead th:nth-child(3),
+    .tech-table tbody td:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.5rem;
+    }
+    
+    /* Полностью меняем таблицу на карточки на очень маленьких экранах */
+    .table-responsive {
+        border: none;
+        background: none;
+    }
+    
+    .tech-table {
+        display: block;
+        min-width: auto;
+    }
+    
+    .tech-table thead {
+        display: none;
+    }
+    
+    .tech-table tbody {
+        display: block;
+    }
+    
+    .tech-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        background: var(--glass-effect);
+        border-radius: 10px;
+        padding: 1rem;
+        border: 1px solid var(--glass-effect);
+    }
+    
+    .tech-table td {
+        display: block;
+        text-align: right;
+        padding: 0.5rem;
+        border: none;
+        position: relative;
+    }
+    
+    .tech-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+}
+
+/* Поддержка высоких экранов */
+@media (min-height: 800px) and (min-width: 1200px) {
+    .project-image {
+        height: 250px;
+    }
+}
+
+/* Адаптивность для печати */
+@media print {
+    .projects-filters,
+    .form,
+    .theme-toggle,
+    .skip-link {
+        display: none;
+    }
+    
+    .project-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .tech-table {
+        break-inside: avoid;
+    }
+}
+
+/* Улучшенная поддержка touch устройств */
+@media (pointer: coarse) {
+    .filter-btn {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px;
+    }
+}
+
+/* Поддержка prefers-reduced-motion для форм */
+@media (prefers-reduced-motion: reduce) {
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .filter-btn {
+        transition: none;
+    }
+}
+
+/* Улучшенные смайлики в тексте */
+.nav-link,
+.section-title,
+.diary-section-title,
+.form-title,
+.info-title,
+.table-title {
+    position: relative;
+}
+
+/* Анимация для смайликов */
+.logo-icon,
+.contact-icon,
+.progress-status {
+    transition: transform 0.3s ease;
+}
+
+.logo-icon:hover,
+.contact-icon:hover,
+.progress-status:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Подсветка активных элементов */
+.nav-link.active::before {
+    content: '✨';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
 }

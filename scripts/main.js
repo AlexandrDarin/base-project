@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initTheme();
     initAnimations();
+    initAccessibility();
 
     function initTheme() {
         const themeToggle = document.querySelector('.theme-toggle');
@@ -36,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function initAnimations() {
         // Плавный скролл для якорных ссылок
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.classList.contains('skip-link')) return; // Пропускаем skip-link
+            
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -80,6 +83,51 @@ document.addEventListener('DOMContentLoaded', function() {
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             cardObserver.observe(el);
+        });
+    }
+
+    function initAccessibility() {
+        // Обработка skip-link
+        const skipLink = document.querySelector('.skip-link');
+        if (skipLink) {
+            skipLink.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.setAttribute('tabindex', '-1');
+                    target.focus();
+                    setTimeout(() => {
+                        target.removeAttribute('tabindex');
+                    }, 1000);
+                }
+            });
+        }
+
+        // Улучшение фокуса для навигации
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Уважение к prefers-reduced-motion
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (reducedMotion.matches) {
+            document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        }
+
+        reducedMotion.addEventListener('change', (e) => {
+            if (e.matches) {
+                document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+            } else {
+                document.documentElement.style.setProperty('--animation-duration', '0.3s');
+            }
         });
     }
 

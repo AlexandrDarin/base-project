@@ -2,91 +2,278 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Контакты - Портфолио Дарьина Александра</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="../scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
 </head>
 <body>
+    <!-- Ссылка пропуск для доступности -->
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
 
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon">🌿</span>
+                    <span class="logo-icon">🚀</span>
                     <span class="logo-text">Дарьин Александр</span>
                 </div>
-                <nav class="nav">
+                <nav class="nav" aria-label="Основная навигация">
                     <ul class="nav-list">
-                        <li><a href="../index.html" class="nav-link">Главная</a></li>
-                        <li><a href="projects.html" class="nav-link">Проекты</a></li>
-                        <li><a href="diary.html" class="nav-link">Дневник</a></li>
-                        <li><a href="contacts.html" class="nav-link active">Контакты</a></li>
+                        <li><a href="../index.html" class="nav-link">🏠 Главная</a></li>
+                        <li><a href="projects.html" class="nav-link">💼 Проекты</a></li>
+                        <li><a href="diary.html" class="nav-link">📚 Дневник</a></li>
+                        <li><a href="contacts.html" class="nav-link active">📞 Контакты</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <section class="contacts">
-        <div class="container">
-            <h1 class="section-title">Свяжитесь со мной</h1>
-            
-            <div class="contacts-content">
-                <div class="contact-form">
-                    <h2 class="form-title">Форма обратной связи</h2>
-                    <form class="form">
-                        <div class="form-group">
-                            <label for="name">Ваше имя:</label>
-                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email адрес:</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Сообщение:</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Опишите ваш вопрос или предложение..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Отправить сообщение</button>
-                    </form>
-                </div>
+    <main id="main">
+        <section class="contacts">
+            <div class="container">
+                <h1 class="section-title">📞 Свяжитесь со мной</h1>
                 
-                <div class="contact-info">
-                    <h2 class="info-title">Контактная информация</h2>
-                    <div class="contact-item">
-                        <img src="../images/icons/email.svg" alt="Email" class="contact-icon">
-                        <div class="contact-details">
-                            <span class="contact-type">Электронная почта</span>
-                            <span class="contact-value">student@edu.ru</span>
-                        </div>
+                <div class="contacts-content">
+                    <div class="contact-form">
+                        <h2 class="form-title">💬 Форма обратной связи</h2>
+                        <form class="form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">👤 Ваше имя:</label>
+                                <input type="text" id="name" name="name" required 
+                                       placeholder="Введите ваше имя"
+                                       pattern="[A-Za-zА-Яа-яЁё\s]{2,50}"
+                                       title="Имя должно содержать только буквы и пробелы (2-50 символов)">
+                                <span class="form-error" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">📧 Email адрес:</label>
+                                <input type="email" id="email" name="email" required 
+                                       placeholder="your.email@example.com"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                       title="Введите корректный email адрес">
+                                <span class="form-error" id="emailError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">📱 Телефон (опционально):</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       placeholder="+7 (999) 999-99-99"
+                                       pattern="[\+\-\d\s\(\)]{10,20}"
+                                       title="Введите номер телефона в международном формате">
+                                <span class="form-error" id="phoneError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">🎯 Тема сообщения:</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Выберите тему</option>
+                                    <option value="collaboration">🤝 Сотрудничество</option>
+                                    <option value="project">💼 Обсуждение проекта</option>
+                                    <option value="consultation">💡 Консультация</option>
+                                    <option value="other">❓ Другое</option>
+                                </select>
+                                <span class="form-error" id="subjectError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">✍️ Сообщение:</label>
+                                <textarea id="message" name="message" rows="6" required 
+                                          placeholder="Опишите ваш вопрос или предложение..."
+                                          minlength="10"
+                                          maxlength="1000"
+                                          title="Сообщение должно содержать от 10 до 1000 символов"></textarea>
+                                <div class="char-count">
+                                    <span id="charCount">0</span>/1000 символов
+                                </div>
+                                <span class="form-error" id="messageError"></span>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">✅ Я согласен на обработку персональных данных</label>
+                                <span class="form-error" id="consentError"></span>
+                            </div>
+                            <button type="submit" class="btn" id="submitBtn">🚀 Отправить сообщение</button>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <img src="../images/icons/github.svg" alt="GitHub" class="contact-icon">
-                        <div class="contact-details">
-                            <span class="contact-type">GitHub</span>
-                            <span class="contact-value">AlexandDar1n</span>
+                    
+                    <div class="contact-info">
+                        <h2 class="info-title">📇 Контактная информация</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <span class="contact-type">Электронная почта</span>
+                                <span class="contact-value">student@edu.ru</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <img src="../images/icons/location.svg" alt="Location" class="contact-icon">
-                        <div class="contact-details">
-                            <span class="contact-type">Местоположение</span>
-                            <span class="contact-value">Москва, Россия</span>
+                        <div class="contact-item">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-details">
+                                <span class="contact-type">GitHub</span>
+                                <span class="contact-value">AlexandDar1n</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <span class="contact-type">Местоположение</span>
+                                <span class="contact-value">Москва, Россия</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Таблица с техническими навыками -->
+                        <div class="skills-table">
+                            <h3 class="table-title">🛠️ Технические навыки</h3>
+                            <div class="table-responsive">
+                                <table class="tech-table">
+                                    <thead>
+                                        <tr>
+                                            <th>⚙️ Технология</th>
+                                            <th>📊 Уровень</th>
+                                            <th>⏱️ Опыт</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>🎨 HTML5/CSS3</td>
+                                            <td>🔥 Продвинутый</td>
+                                            <td>2 года</td>
+                                        </tr>
+                                        <tr>
+                                            <td>⚡ JavaScript</td>
+                                            <td>🔥 Продвинутый</td>
+                                            <td>1.5 года</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🔮 React</td>
+                                            <td>💪 Средний</td>
+                                            <td>1 год</td>
+                                        </tr>
+                                        <tr>
+                                            <td>📘 TypeScript</td>
+                                            <td>💪 Средний</td>
+                                            <td>6 месяцев</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🟢 Node.js</td>
+                                            <td>🌱 Начальный</td>
+                                            <td>3 месяца</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Время ответа -->
+                        <div class="response-time">
+                            <h3>⏰ Время ответа</h3>
+                            <div class="time-info">
+                                <p>📧 <strong>Email:</strong> в течение 24 часов</p>
+                                <p>💬 <strong>Сообщения:</strong> в течение 2-3 часов</p>
+                                <p>🕒 <strong>Рабочие часы:</strong> Пн-Пт, 9:00-18:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
-            <p class="footer-subtitle">Портфолио разработчика</p>
+            <p class="footer-subtitle">🎯 Портфолио разработчика</p>
         </div>
     </footer>
+
+    <script>
+        // Валидация формы
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const message = document.getElementById('message');
+            const charCount = document.getElementById('charCount');
+            
+            // Счетчик символов
+            message.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+                
+                // Меняем цвет при приближении к лимиту
+                if (this.value.length > 900) {
+                    charCount.style.color = '#ff4444';
+                } else if (this.value.length > 700) {
+                    charCount.style.color = '#ffaa00';
+                } else {
+                    charCount.style.color = 'var(--text-color)';
+                }
+            });
+            
+            // Валидация формы
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // Показываем анимацию отправки
+                    const submitBtn = document.getElementById('submitBtn');
+                    submitBtn.innerHTML = '⏳ Отправка...';
+                    submitBtn.disabled = true;
+                    
+                    // Имитация отправки
+                    setTimeout(() => {
+                        alert('✅ Сообщение отправлено! Спасибо за ваше сообщение.');
+                        form.reset();
+                        charCount.textContent = '0';
+                        charCount.style.color = 'var(--text-color)';
+                        submitBtn.innerHTML = '🚀 Отправить сообщение';
+                        submitBtn.disabled = false;
+                    }, 2000);
+                }
+            });
+            
+            function validateForm() {
+                let isValid = true;
+                
+                // Сброс ошибок
+                document.querySelectorAll('.form-error').forEach(error => {
+                    error.textContent = '';
+                });
+                
+                // Валидация имени
+                const name = document.getElementById('name');
+                if (!name.value.trim()) {
+                    document.getElementById('nameError').textContent = '❌ Введите имя';
+                    isValid = false;
+                } else if (name.value.trim().length < 2) {
+                    document.getElementById('nameError').textContent = '❌ Имя слишком короткое';
+                    isValid = false;
+                }
+                
+                // Валидация email
+                const email = document.getElementById('email');
+                if (!email.validity.valid) {
+                    document.getElementById('emailError').textContent = '❌ Введите корректный email';
+                    isValid = false;
+                }
+                
+                // Валидация сообщения
+                if (message.value.length < 10) {
+                    document.getElementById('messageError').textContent = '❌ Сообщение должно содержать минимум 10 символов';
+                    isValid = false;
+                } else if (message.value.length > 1000) {
+                    document.getElementById('messageError').textContent = '❌ Сообщение слишком длинное';
+                    isValid = false;
+                }
+                
+                // Валидация согласия
+                const consent = document.getElementById('consent');
+                if (!consent.checked) {
+                    document.getElementById('consentError').textContent = '❌ Необходимо согласие';
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+        });
+    </script>
 </body>
 </html>

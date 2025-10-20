@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Портфолио разработчика | Дарьин Александр Владимирович</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/main.js"></script>
@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <!-- Ссылка пропуск для доступности -->
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <!-- Кнопка переключения темы -->
     <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
 
@@ -19,133 +22,158 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon">🌿</span>
+                    <span class="logo-icon">🚀</span>
                     <span class="logo-text">Дарьин Александр</span>
                 </div>
-                <nav class="nav">
+                <nav class="nav" aria-label="Основная навигация">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link active">Главная</a></li>
-                        <li><a href="pages/projects.html" class="nav-link">Проекты</a></li>
-                        <li><a href="pages/diary.html" class="nav-link">Дневник</a></li>
-                        <li><a href="pages/contacts.html" class="nav-link">Контакты</a></li>
+                        <li><a href="index.html" class="nav-link active">🏠 Главная</a></li>
+                        <li><a href="pages/projects.html" class="nav-link">💼 Проекты</a></li>
+                        <li><a href="pages/diary.html" class="nav-link">📚 Дневник</a></li>
+                        <li><a href="pages/contacts.html" class="nav-link">📞 Контакты</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- обо мне -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <img src="images/photo.jpg" alt="Фотография Дарьина Александра" class="profile-photo">
-                    <div class="photo-placeholder">👤</div>
-                </div>
-                <div class="hero-text">
-                    <h1>Дарьин Александр</h1>
-                    <p><strong>Студент-разработчик</strong></p>
-                    <p>Факультет информационных технологий</p>
-                    <p>Группа ЭФБО-15-24</p>
-                    <div class="specialization">
-                        <h3>Специализация</h3>
-                        <p>Веб-разработка • Frontend • Пользовательские интерфейсы</p>
+    <!-- основной контент -->
+    <main id="main">
+        <!-- обо мне -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="profile-image">
+                        <img class="profile-photo" 
+                             src="images/photo.jpg" 
+                             alt="Фотография Дарьина Александра"
+                             width="220" height="220"
+                             loading="eager"
+                             decoding="sync">
+                        <div class="photo-placeholder">👨‍💻</div>
                     </div>
-                    <div class="motto">
-                        <h3>Профессиональный принцип</h3>
-                        <p>"Совершенство в деталях, инновации в решениях"</p>
-                    </div>
-                    <a href="assets/resume.pdf" class="btn" download>Скачать резюме (PDF)</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- компетенции -->
-    <section class="skills">
-        <div class="container">
-            <h2 class="section-title">Профессиональные компетенции</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Frontend Разработка</span>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress html"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">JavaScript & TypeScript</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress javascript"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Адаптивная верстка</span>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress bootstrap"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">React & Современные фреймворки</span>
-                        <span class="skill-percentage">60%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress react"></div>
+                    <div class="hero-text">
+                        <h1>Дарьин Александр</h1>
+                        <p><strong>🎓 Студент-разработчик</strong></p>
+                        <p>📚 Факультет информационных технологий</p>
+                        <p>👥 Группа ЭФБО-15-24</p>
+                        <div class="specialization">
+                            <h3>🎯 Специализация</h3>
+                            <p>Веб-разработка • Frontend • Пользовательские интерфейсы</p>
+                        </div>
+                        <div class="motto">
+                            <h3>💫 Профессиональный принцип</h3>
+                            <p>"Совершенство в деталях, инновации в решениях"</p>
+                        </div>
+                        <a href="assets/resume.pdf" class="btn" download>📥 Скачать резюме (PDF)</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ключевые проекты -->
-    <section class="projects">
-        <div class="container">
-            <h2 class="section-title">Ключевые проекты</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project1.jpg" alt="Корпоративный сайт" class="project-photo">
+        <!-- компетенции -->
+        <section class="skills">
+            <div class="container">
+                <h2 class="section-title">💪 Профессиональные компетенции</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">🎨 Frontend Разработка</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <h3 class="project-title">Корпоративный веб-портал</h3>
-                    <p class="project-description">Многостраничный адаптивный сайт с современным дизайном и оптимизированной структурой</p>
-                    <div class="project-tech">HTML5, CSS3, JavaScript</div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project2.jpg" alt="Приложение управления задачами" class="project-photo">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">⚡ JavaScript & TypeScript</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
                     </div>
-                    <h3 class="project-title">Система управления задачами</h3>
-                    <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем и интуитивным интерфейсом</p>
-                    <div class="project-tech">JavaScript, LocalStorage, Material Design</div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/project3.jpg" alt="Интернет-магазин" class="project-photo">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">📱 Адаптивная верстка</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <h3 class="project-title">E-commerce платформа</h3>
-                    <p class="project-description">Прототип интернет-магазина с корзиной товаров и системой оформления заказов</p>
-                    <div class="project-tech">React, Node.js, REST API</div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">🔮 React & Современные фреймворки</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ключевые проекты -->
+        <section class="projects">
+            <div class="container">
+                <h2 class="section-title">🚀 Ключевые проекты</h2>
+                <div class="projects-container">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project1.jpg"
+                                     alt="Корпоративный сайт"
+                                     width="400" height="225"
+                                     loading="lazy" 
+                                     decoding="async"
+                                     class="project-photo">
+                            </div>
+                            <h3 class="project-title">🏢 Корпоративный веб-портал</h3>
+                            <p class="project-description">Многостраничный адаптивный сайт с современным дизайном и оптимизированной структурой</p>
+                            <div class="project-tech">🛠️ HTML5, CSS3, JavaScript</div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project2.jpg"
+                                     alt="Приложение управления задачами"
+                                     width="400" height="225"
+                                     loading="lazy" 
+                                     decoding="async"
+                                     class="project-photo">
+                            </div>
+                            <h3 class="project-title">✅ Система управления задачами</h3>
+                            <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем и интуитивным интерфейсом</p>
+                            <div class="project-tech">⚡ JavaScript, LocalStorage, Material Design</div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project3.jpg"
+                                     alt="Интернет-магазин"
+                                     width="400" height="225"
+                                     loading="lazy" 
+                                     decoding="async"
+                                     class="project-photo">
+                            </div>
+                            <h3 class="project-title">🛒 E-commerce платформа</h3>
+                            <p class="project-description">Прототип интернет-магазина с корзиной товаров и системой оформления заказов</p>
+                            <div class="project-tech">🔮 React, Node.js, REST API</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- футер -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
-            <p class="footer-subtitle">Портфолио разработчика</p>
+            <p class="footer-subtitle">🎯 Портфолио разработчика</p>
         </div>
     </footer>
 </body>
