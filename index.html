@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио студента-разработчика</title>
+    <title>Портфолио разработчика | Дарьин Александр</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
+    <!-- Кнопка переключения темы -->
+    <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+
     <!-- хэдер -->
     <header class="header">
         <div class="container">
@@ -36,29 +39,36 @@
         <div class="container">
             <div class="hero-content">
                 <div class="profile-image">
-                    <img src="images/photo.jpg" alt="Фото студента" class="profile-photo">
+                    <img src="images/photo.jpg" alt="Фотография Дарьина Александра" class="profile-photo">
                     <div class="photo-placeholder">👤</div>
                 </div>
                 <div class="hero-text">
-                    <h1>Привет! Я Студент</h1>
-                    <p>Факультет ИT, группа ЭФБО-15-24</p>
-                    <p>Увлекаюсь веб-разработкой</p>
-                    <h3>Кричалка</h3>
-                    <p>Наш дивиз 4 слова - **** **** **** ****</p>
-                    <a href="../assets/resume.pdf" class="btn" download>Скачать резюме</a>
+                    <h1>Дарьин Александр</h1>
+                    <p><strong>Студент-разработчик</strong></p>
+                    <p>Факультет информационных технологий</p>
+                    <p>Группа ЭФБО-15-24</p>
+                    <div class="specialization">
+                        <h3>Специализация</h3>
+                        <p>Веб-разработка • Frontend • Пользовательские интерфейсы</p>
+                    </div>
+                    <div class="motto">
+                        <h3>Профессиональный принцип</h3>
+                        <p>"Совершенство в деталях, инновации в решениях"</p>
+                    </div>
+                    <a href="assets/resume.pdf" class="btn" download>Скачать резюме (PDF)</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- навыки -->
+    <!-- компетенции -->
     <section class="skills">
         <div class="container">
-            <h2 class="section-title">Мои навыки</h2>
+            <h2 class="section-title">Профессиональные компетенции</h2>
             <div class="skills-grid">
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-name">HTML/CSS</span>
+                        <span class="skill-name">Frontend Разработка</span>
                         <span class="skill-percentage">90%</span>
                     </div>
                     <div class="skill-bar">
@@ -67,7 +77,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-name">JavaScript & TypeScript</span>
                         <span class="skill-percentage">80%</span>
                     </div>
                     <div class="skill-bar">
@@ -76,7 +86,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-name">Bootstrap</span>
+                        <span class="skill-name">Адаптивная верстка</span>
                         <span class="skill-percentage">85%</span>
                     </div>
                     <div class="skill-bar">
@@ -85,7 +95,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-name">React</span>
+                        <span class="skill-name">React & Современные фреймворки</span>
                         <span class="skill-percentage">60%</span>
                     </div>
                     <div class="skill-bar">
@@ -96,36 +106,36 @@
         </div>
     </section>
 
-    <!-- секции -->
+    <!-- ключевые проекты -->
     <section class="projects">
         <div class="container">
-            <h2 class="section-title">Лучшие проекты</h2>
+            <h2 class="section-title">Ключевые проекты</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project1.jpg" alt="Личный сайт" class="project-photo">
+                        <img src="images/project1.jpg" alt="Корпоративный сайт" class="project-photo">
                     </div>
-                    <h3 class="project-title">Личный сайт</h3>
-                    <p class="project-description">Адаптивный сайт-визитка с современным дизайном</p>
-                    <div class="project-tech">HTML, CSS, JavaScript</div>
+                    <h3 class="project-title">Корпоративный веб-портал</h3>
+                    <p class="project-description">Многостраничный адаптивный сайт с современным дизайном и оптимизированной структурой</p>
+                    <div class="project-tech">HTML5, CSS3, JavaScript</div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project2.jpg" alt="Todo-приложение" class="project-photo">
+                        <img src="images/project2.jpg" alt="Приложение управления задачами" class="project-photo">
                     </div>
-                    <h3 class="project-title">Todo-приложение</h3>
-                    <p class="project-description">Приложение для управления задачами с локальным хранилищем</p>
-                    <div class="project-tech">JavaScript, LocalStorage</div>
+                    <h3 class="project-title">Система управления задачами</h3>
+                    <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем и интуитивным интерфейсом</p>
+                    <div class="project-tech">JavaScript, LocalStorage, Material Design</div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/project3.jpg" alt="Интернет-магазин" class="project-photo">
                     </div>
-                    <h3 class="project-title">Интернет-магазин</h3>
-                    <p class="project-description">Прототип интернет-магазина с корзиной товаров</p>
-                    <div class="project-tech">React, Node.js</div>
+                    <h3 class="project-title">E-commerce платформа</h3>
+                    <p class="project-description">Прототип интернет-магазина с корзиной товаров и системой оформления заказов</p>
+                    <div class="project-tech">React, Node.js, REST API</div>
                 </div>
             </div>
         </div>
@@ -134,7 +144,8 @@
     <!-- футер -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Контакты</p>
+            <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
+            <p class="footer-subtitle">Портфолио разработчика</p>
         </div>
     </footer>
 </body>

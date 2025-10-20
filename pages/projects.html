@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проекты - Портфолио</title>
+    <title>Проекты - Портфолио Дарьина Александра</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="../scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
 </head>
 
 <body>
+    <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -32,60 +34,52 @@
 
     <section class="projects">
         <div class="container">
-            <div class="projects-header">
-                <h1 class="section-title">Мои проекты</h1>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Все</button>
-                    <button class="filter-btn" data-filter="html">HTML/CSS</button>
-                    <button class="filter-btn" data-filter="js">JavaScript</button>
-                    <button class="filter-btn" data-filter="react">React</button>
-                </div>
-            </div>
-
+            <h1 class="section-title">Мои проекты</h1>
+            
             <div class="projects-grid">
-                <div class="project-card" data-tech="html">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="../images/project1.jpg" alt="Личный сайт" class="project-photo">
+                        <img src="../images/project1.jpg" alt="Корпоративный веб-портал" class="project-photo">
                     </div>
-                    <h3 class="project-title">Личный сайт</h3>
-                    <p class="project-description">Адаптивный сайт-визитка с современным дизайном и анимациями</p>
-                    <div class="project-tech">HTML, CSS</div>
+                    <h3 class="project-title">Корпоративный веб-портал</h3>
+                    <p class="project-description">Многостраничный адаптивный сайт с современным дизайном, оптимизированной структурой и интуитивной навигацией</p>
+                    <div class="project-tech">HTML5, CSS3, JavaScript</div>
                 </div>
 
-                <div class="project-card" data-tech="js">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="../images/project2.jpg" alt="Todo-приложение" class="project-photo">
+                        <img src="../images/project2.jpg" alt="Система управления задачами" class="project-photo">
                     </div>
-                    <h3 class="project-title">Todo-приложение</h3>
-                    <p class="project-description">Приложение для управления задачами с локальным хранилищем и
-                        фильтрацией</p>
-                    <div class="project-tech">JavaScript</div>
+                    <h3 class="project-title">Система управления задачами</h3>
+                    <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем, интуитивным интерфейсом и адаптивным дизайном</p>
+                    <div class="project-tech">JavaScript, LocalStorage, Material Design</div>
                 </div>
 
-                <div class="project-card" data-tech="react">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="../images/project3.jpg" alt="Интернет-магазин" class="project-photo">
+                        <img src="../images/project3.jpg" alt="E-commerce платформа" class="project-photo">
                     </div>
-                    <h3 class="project-title">Интернет-магазин</h3>
-                    <p class="project-description">Прототип интернет-магазина с корзиной товаров и оформлением заказа
-                    </p>
-                    <div class="project-tech">React</div>
+                    <h3 class="project-title">E-commerce платформа</h3>
+                    <p class="project-description">Прототип интернет-магазина с корзиной товаров, системой оформления заказов и адаптивным интерфейсом</p>
+                    <div class="project-tech">React, Node.js, REST API</div>
                 </div>
 
-                <div class="project-card" data-tech="html">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="../images/project4.jpg" alt="Портфолио" class="project-photo">
+                        <img src="../images/project4.jpg" alt="Портфолио разработчика" class="project-photo">
                     </div>
-                    <h3 class="project-title">Портфолио</h3>
-                    <p class="project-description">Адаптивное портфолио на Bootstrap с сеткой проектов</p>
-                    <div class="project-tech">Bootstrap</div>
+                    <h3 class="project-title">Портфолио разработчика</h3>
+                    <p class="project-description">Адаптивное портфолио на современных технологиях с интерактивными элементами и оптимизированной структурой</p>
+                    <div class="project-tech">Bootstrap, JavaScript, CSS3</div>
                 </div>
             </div>
+        </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Контакты</p>
+            <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
+            <p class="footer-subtitle">Портфолио разработчика</p>
         </div>
     </footer>
 </body>
