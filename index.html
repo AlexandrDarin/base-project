@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Портфолио разработчика | Дарьин Александр Владимирович</title>
+    <title>Дарьин Александр - Frontend разработчик | Портфолио</title>
+    <meta name="description" content="Дарьин Александр - frontend разработчик. Создание современных веб-приложений на React, JavaScript, TypeScript. Студент факультета информационных технологий.">
+    <meta name="keywords" content="frontend разработчик, React, JavaScript, TypeScript, веб-разработка, портфолио программиста">
+    <meta name="author" content="Дарьин Александр">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Дарьин Александр - Frontend разработчик">
+    <meta property="og:description" content="Создаю современные веб-приложения с фокусом на пользовательский опыт и инновационные технологии">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Дарьин Александр - Frontend разработчик">
+    <meta name="twitter:description" content="Портфолио frontend разработчика - современные веб-технологии и проекты">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Дарьин Александр",
+        "jobTitle": "Frontend разработчик",
+        "url": "https://yourdomain.com",
+        "sameAs": [
+            "https://github.com/AlexandDar1n"
+        ],
+        "knowsAbout": ["JavaScript", "React", "TypeScript", "HTML5", "CSS3", "Web Development"],
+        "description": "Frontend разработчик с фокусом на создание современных пользовательских интерфейсов"
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="canonical" href="https://yourdomain.com">
 </head>
 
 <body>
@@ -18,19 +51,39 @@
     <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
 
     <!-- хэдер -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🚀</span>
+                <a href="index.html" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon" aria-hidden="true">🚀</span>
                     <span class="logo-text">Дарьин Александр</span>
-                </div>
+                </a>
                 <nav class="nav" aria-label="Основная навигация">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link active">🏠 Главная</a></li>
-                        <li><a href="pages/projects.html" class="nav-link">💼 Проекты</a></li>
-                        <li><a href="pages/diary.html" class="nav-link">📚 Дневник</a></li>
-                        <li><a href="pages/contacts.html" class="nav-link">📞 Контакты</a></li>
+                    <ul class="nav-list" role="menubar">
+                        <li role="none">
+                            <a href="index.html" class="nav-link active" role="menuitem" aria-current="page">
+                                <span aria-hidden="true">🏠</span>
+                                Главная
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="pages/projects.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">💼</span>
+                                Проекты
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="pages/diary.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📚</span>
+                                Дневник
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="pages/contacts.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📞</span>
+                                Контакты
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -38,43 +91,45 @@
     </header>
 
     <!-- основной контент -->
-    <main id="main">
+    <main id="main" role="main" tabindex="-1">
         <!-- обо мне -->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-heading">
             <div class="container">
                 <div class="hero-content">
                     <div class="profile-image">
                         <img class="profile-photo" 
                              src="images/photo.jpg" 
-                             alt="Фотография Дарьина Александра"
+                             alt="Фотография Дарьина Александра - Frontend разработчика"
                              width="220" height="220"
                              loading="eager"
                              decoding="sync">
-                        <div class="photo-placeholder">👨‍💻</div>
+                        <div class="photo-placeholder" aria-hidden="true">👨‍💻</div>
                     </div>
                     <div class="hero-text">
-                        <h1>Дарьин Александр</h1>
+                        <h1 id="hero-heading">Дарьин Александр</h1>
                         <p><strong>🎓 Студент-разработчик</strong></p>
                         <p>📚 Факультет информационных технологий</p>
                         <p>👥 Группа ЭФБО-15-24</p>
                         <div class="specialization">
-                            <h3>🎯 Специализация</h3>
+                            <h2>🎯 Специализация</h2>
                             <p>Веб-разработка • Frontend • Пользовательские интерфейсы</p>
                         </div>
                         <div class="motto">
-                            <h3>💫 Профессиональный принцип</h3>
+                            <h2>💫 Профессиональный принцип</h2>
                             <p>"Совершенство в деталях, инновации в решениях"</p>
                         </div>
-                        <a href="assets/resume.pdf" class="btn" download>📥 Скачать резюме (PDF)</a>
+                        <a href="assets/resume.pdf" class="btn" download aria-label="Скачать резюме Дарьина Александра в PDF формате">
+                            📥 Скачать резюме (PDF)
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- компетенции -->
-        <section class="skills">
+        <section class="skills" aria-labelledby="skills-heading">
             <div class="container">
-                <h2 class="section-title">💪 Профессиональные компетенции</h2>
+                <h2 id="skills-heading" class="section-title">💪 Профессиональные компетенции</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <div class="skill-header">
@@ -82,7 +137,7 @@
                             <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" style="width: 90%" aria-label="Уровень навыка Frontend разработка: 90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -91,7 +146,7 @@
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" style="width: 80%" aria-label="Уровень навыка JavaScript и TypeScript: 80%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -100,7 +155,7 @@
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" style="width: 85%" aria-label="Уровень навыка адаптивной верстки: 85%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -109,7 +164,7 @@
                             <span class="skill-percentage">60%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 60%"></div>
+                            <div class="skill-progress" style="width: 60%" aria-label="Уровень навыка React и современных фреймворков: 60%"></div>
                         </div>
                     </div>
                 </div>
@@ -117,15 +172,15 @@
         </section>
 
         <!-- ключевые проекты -->
-        <section class="projects">
+        <section class="projects" aria-labelledby="projects-heading">
             <div class="container">
-                <h2 class="section-title">🚀 Ключевые проекты</h2>
+                <h2 id="projects-heading" class="section-title">🚀 Ключевые проекты</h2>
                 <div class="projects-container">
                     <div class="projects-grid">
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
                                 <img src="images/project1.jpg"
-                                     alt="Корпоративный сайт"
+                                     alt="Корпоративный веб-портал - проект frontend разработки"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
@@ -134,12 +189,12 @@
                             <h3 class="project-title">🏢 Корпоративный веб-портал</h3>
                             <p class="project-description">Многостраничный адаптивный сайт с современным дизайном и оптимизированной структурой</p>
                             <div class="project-tech">🛠️ HTML5, CSS3, JavaScript</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
                                 <img src="images/project2.jpg"
-                                     alt="Приложение управления задачами"
+                                     alt="Система управления задачами - JavaScript приложение"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
@@ -148,12 +203,12 @@
                             <h3 class="project-title">✅ Система управления задачами</h3>
                             <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем и интуитивным интерфейсом</p>
                             <div class="project-tech">⚡ JavaScript, LocalStorage, Material Design</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
                                 <img src="images/project3.jpg"
-                                     alt="Интернет-магазин"
+                                     alt="E-commerce платформа на React - интернет-магазин"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
@@ -162,7 +217,7 @@
                             <h3 class="project-title">🛒 E-commerce платформа</h3>
                             <p class="project-description">Прототип интернет-магазина с корзиной товаров и системой оформления заказов</p>
                             <div class="project-tech">🔮 React, Node.js, REST API</div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -170,12 +225,11 @@
     </main>
 
     <!-- футер -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
             <p class="footer-subtitle">🎯 Портфолио разработчика</p>
         </div>
     </footer>
 </body>
-
 </html>

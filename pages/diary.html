@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Учебный дневник - Портфолио Дарьина Александра</title>
+    <title>Учебный дневник | Дарьин Александр - Прогресс обучения</title>
+    <meta name="description" content="Учебный дневник Дарьина Александра: прогресс в изучении веб-разработки, JavaScript, React, TypeScript. Отслеживание достижений и планов обучения.">
+    <meta name="keywords" content="учебный дневник, прогресс обучения, веб-разработка, JavaScript изучение, React обучение">
+    <meta name="author" content="Дарьин Александр">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Учебный дневник | Дарьин Александр">
+    <meta property="og:description" content="Прогресс обучения и развития в веб-разработке - отслеживание достижений и целей">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/pages/diary.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Учебный дневник веб-разработчика",
+        "description": "Прогресс обучения frontend разработке и современным технологиям",
+        "learningResourceType": "Educational progression",
+        "author": {
+            "@type": "Person",
+            "name": "Дарьин Александр"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="../scripts/main.js"></script>
+    <script src="../scripts/main.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="canonical" href="https://yourdomain.com/pages/diary.html">
 </head>
 <body>
     <!-- Ссылка пропуск для доступности -->
@@ -14,74 +41,94 @@
 
     <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
 
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🚀</span>
+                <a href="../index.html" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon" aria-hidden="true">🚀</span>
                     <span class="logo-text">Дарьин Александр</span>
-                </div>
+                </a>
                 <nav class="nav" aria-label="Основная навигация">
-                    <ul class="nav-list">
-                        <li><a href="../index.html" class="nav-link">🏠 Главная</a></li>
-                        <li><a href="projects.html" class="nav-link">💼 Проекты</a></li>
-                        <li><a href="diary.html" class="nav-link active">📚 Дневник</a></li>
-                        <li><a href="contacts.html" class="nav-link">📞 Контакты</a></li>
+                    <ul class="nav-list" role="menubar">
+                        <li role="none">
+                            <a href="../index.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">🏠</span>
+                                Главная
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="projects.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">💼</span>
+                                Проекты
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="diary.html" class="nav-link active" role="menuitem" aria-current="page">
+                                <span aria-hidden="true">📚</span>
+                                Дневник
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="contacts.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📞</span>
+                                Контакты
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main id="main">
-        <section class="diary">
+    <main id="main" role="main" tabindex="-1">
+        <section class="diary" aria-labelledby="diary-heading">
             <div class="container">
-                <h1 class="section-title">📚 Учебный прогресс</h1>
+                <h1 id="diary-heading" class="section-title">📚 Учебный прогресс</h1>
                 
                 <div class="diary-content">
-                    <div class="progress-list">
-                        <h2 class="diary-section-title">📅 История обучения</h2>
+                    <div class="progress-list" aria-labelledby="progress-heading">
+                        <h2 id="progress-heading" class="diary-section-title">📅 История обучения</h2>
                         <div class="progress-item completed">
                             <span class="progress-date">🎄 15 декабря</span>
                             <span class="progress-task">Верстка макета сайта</span>
-                            <span class="progress-status">✅</span>
+                            <span class="progress-status" aria-label="Задание завершено">✅</span>
                         </div>
                         <div class="progress-item completed">
                             <span class="progress-date">🎄 10 декабря</span>
                             <span class="progress-task">Основы JavaScript</span>
-                            <span class="progress-status">✅</span>
+                            <span class="progress-status" aria-label="Задание завершено">✅</span>
                         </div>
                         <div class="progress-item in-progress">
                             <span class="progress-date">🎄 5 декабря</span>
                             <span class="progress-task">Работа с формами и валидация</span>
-                            <span class="progress-status">⚡</span>
+                            <span class="progress-status" aria-label="Задание в процессе выполнения">⚡</span>
                         </div>
                         <div class="progress-item in-progress">
                             <span class="progress-date">🎄 1 декабря</span>
                             <span class="progress-task">Адаптивный дизайн и кроссбраузерность</span>
-                            <span class="progress-status">⚡</span>
+                            <span class="progress-status" aria-label="Задание в процессе выполнения">⚡</span>
                         </div>
                         <div class="progress-item planned">
                             <span class="progress-date">📅 25 декабря</span>
                             <span class="progress-task">React основы и компоненты</span>
-                            <span class="progress-status">🕒</span>
+                            <span class="progress-status" aria-label="Задание запланировано">🕒</span>
                         </div>
                         <div class="progress-item planned">
                             <span class="progress-date">📅 30 декабря</span>
                             <span class="progress-task">Работа с API и асинхронность</span>
-                            <span class="progress-status">🕒</span>
+                            <span class="progress-status" aria-label="Задание запланировано">🕒</span>
                         </div>
                     </div>
                     
-                    <div class="current-courses">
-                        <h2 class="diary-section-title">🎯 Текущие курсы</h2>
+                    <div class="current-courses" aria-labelledby="courses-heading">
+                        <h2 id="courses-heading" class="diary-section-title">🎯 Текущие курсы</h2>
                         <div class="course-item">
                             <div class="course-header">
                                 <span class="course-name">🎨 Веб-разработка</span>
                                 <span class="course-percentage">90%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                                <div class="skill-progress" style="width: 90%" aria-label="Прогресс курса Веб-разработка: 90%"></div>
                             </div>
                         </div>
                         <div class="course-item">
@@ -90,7 +137,7 @@
                                 <span class="course-percentage">70%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
+                                <div class="skill-progress" style="width: 70%" aria-label="Прогресс курса JavaScript и TypeScript: 70%"></div>
                             </div>
                         </div>
                         <div class="course-item">
@@ -99,13 +146,13 @@
                                 <span class="course-percentage">50%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 50%"></div>
+                                <div class="skill-progress" style="width: 50%" aria-label="Прогресс курса React и современные фреймворки: 50%"></div>
                             </div>
                         </div>
                         
                         <!-- Статистика обучения -->
-                        <div class="learning-stats">
-                            <h3>📊 Статистика обучения</h3>
+                        <div class="learning-stats" aria-labelledby="stats-heading">
+                            <h3 id="stats-heading">📊 Статистика обучения</h3>
                             <div class="stats-grid">
                                 <div class="stat-item">
                                     <span class="stat-number">42</span>
@@ -122,14 +169,16 @@
                             </div>
                         </div>
                         
-                        <button class="btn" style="margin-top: 30px;">📝 Добавить учебную запись</button>
+                        <button class="btn" style="margin-top: 30px;" aria-label="Добавить новую учебную запись">
+                            📝 Добавить учебную запись
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
             <p class="footer-subtitle">🎯 Портфолио разработчика</p>

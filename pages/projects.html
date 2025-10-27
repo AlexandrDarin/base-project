@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Проекты - Портфолио Дарьина Александра</title>
+    <title>Проекты портфолио | Дарьин Александр - Frontend разработчик</title>
+    <meta name="description" content="Портфолио проектов Дарьина Александра: E-commerce платформы, React приложения, JavaScript разработка. Современные веб-решения и кейсы.">
+    <meta name="keywords" content="проекты портфолио, React проекты, JavaScript приложения, веб-разработка, кейсы разработчика">
+    <meta name="author" content="Дарьин Александр">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Проекты портфолио | Дарьин Александр">
+    <meta property="og:description" content="Коллекция веб-проектов frontend разработчика - современные технологии и инновационные решения">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/pages/projects.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Портфолио проектов",
+        "description": "Коллекция веб-проектов frontend разработчика Дарьина Александра",
+        "numberOfItems": 6,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "CreativeWork",
+                    "name": "Корпоративный веб-портал",
+                    "description": "Многостраничный адаптивный сайт с современным дизайном"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "CreativeWork",
+                    "name": "Система управления задачами",
+                    "description": "Прогрессивное веб-приложение с локальным хранилищем"
+                }
+            }
+        ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="../scripts/main.js"></script>
+    <script src="../scripts/main.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="canonical" href="https://yourdomain.com/pages/projects.html">
 </head>
 
 <body>
@@ -16,136 +58,156 @@
 
     <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
 
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🚀</span>
+                <a href="../index.html" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon" aria-hidden="true">🚀</span>
                     <span class="logo-text">Дарьин Александр</span>
-                </div>
+                </a>
                 <nav class="nav" aria-label="Основная навигация">
-                    <ul class="nav-list">
-                        <li><a href="../index.html" class="nav-link">🏠 Главная</a></li>
-                        <li><a href="projects.html" class="nav-link active">💼 Проекты</a></li>
-                        <li><a href="diary.html" class="nav-link">📚 Дневник</a></li>
-                        <li><a href="contacts.html" class="nav-link">📞 Контакты</a></li>
+                    <ul class="nav-list" role="menubar">
+                        <li role="none">
+                            <a href="../index.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">🏠</span>
+                                Главная
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="projects.html" class="nav-link active" role="menuitem" aria-current="page">
+                                <span aria-hidden="true">💼</span>
+                                Проекты
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="diary.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📚</span>
+                                Дневник
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="contacts.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📞</span>
+                                Контакты
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main id="main">
-        <section class="projects">
+    <main id="main" role="main" tabindex="-1">
+        <section class="projects" aria-labelledby="projects-heading">
             <div class="container">
-                <h1 class="section-title">💼 Мои проекты</h1>
+                <h1 id="projects-heading" class="section-title">💼 Мои проекты</h1>
                 
                 <!-- Фильтры проектов -->
-                <div class="projects-filters">
-                    <button class="filter-btn active" data-filter="all">🌟 Все проекты</button>
-                    <button class="filter-btn" data-filter="frontend">🎨 Frontend</button>
-                    <button class="filter-btn" data-filter="javascript">⚡ JavaScript</button>
-                    <button class="filter-btn" data-filter="react">🔮 React</button>
+                <div class="projects-filters" role="group" aria-label="Фильтры проектов">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">🌟 Все проекты</button>
+                    <button class="filter-btn" data-filter="frontend" aria-pressed="false">🎨 Frontend</button>
+                    <button class="filter-btn" data-filter="javascript" aria-pressed="false">⚡ JavaScript</button>
+                    <button class="filter-btn" data-filter="react" aria-pressed="false">🔮 React</button>
                 </div>
                 
                 <div class="projects-container">
                     <div class="projects-grid">
-                        <div class="project-card" data-category="frontend">
+                        <article class="project-card" data-category="frontend">
                             <div class="project-image">
                                 <img src="../images/project1.jpg"
-                                     alt="Корпоративный веб-портал"
+                                     alt="Корпоративный веб-портал - адаптивный многостраничный сайт"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">🏢 Корпоративный веб-портал</h3>
+                            <h2 class="project-title">🏢 Корпоративный веб-портал</h2>
                             <p class="project-description">Многостраничный адаптивный сайт с современным дизайном, оптимизированной структурой и интуитивной навигацией</p>
                             <div class="project-tech">🛠️ HTML5, CSS3, JavaScript</div>
                             <div class="project-status">✅ Завершен</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card" data-category="javascript">
+                        <article class="project-card" data-category="javascript">
                             <div class="project-image">
                                 <img src="../images/project2.jpg"
-                                     alt="Система управления задачами"
+                                     alt="Система управления задачами - PWA приложение"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">✅ Система управления задачами</h3>
+                            <h2 class="project-title">✅ Система управления задачами</h2>
                             <p class="project-description">Прогрессивное веб-приложение с локальным хранилищем, интуитивным интерфейсом и адаптивным дизайном</p>
                             <div class="project-tech">⚡ JavaScript, LocalStorage, Material Design</div>
                             <div class="project-status">✅ Завершен</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card" data-category="react">
+                        <article class="project-card" data-category="react">
                             <div class="project-image">
                                 <img src="../images/project3.jpg"
-                                     alt="E-commerce платформа"
+                                     alt="E-commerce платформа на React - интернет-магазин"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">🛒 E-commerce платформа</h3>
+                            <h2 class="project-title">🛒 E-commerce платформа</h2>
                             <p class="project-description">Прототип интернет-магазина с корзиной товаров, системой оформления заказов и адаптивным интерфейсом</p>
                             <div class="project-tech">🔮 React, Node.js, REST API</div>
                             <div class="project-status">🔄 В разработке</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card" data-category="frontend">
+                        <article class="project-card" data-category="frontend">
                             <div class="project-image">
                                 <img src="../images/project4.jpg"
-                                     alt="Портфолио разработчика"
+                                     alt="Портфолио разработчика - адаптивный веб-сайт"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">🎯 Портфолио разработчика</h3>
+                            <h2 class="project-title">🎯 Портфолио разработчика</h2>
                             <p class="project-description">Адаптивное портфолио на современных технологиях с интерактивными элементами и оптимизированной структурой</p>
                             <div class="project-tech">🎨 Bootstrap, JavaScript, CSS3</div>
                             <div class="project-status">✅ Завершен</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card" data-category="javascript">
+                        <article class="project-card" data-category="javascript">
                             <div class="project-image">
                                 <img src="../images/project5.jpg"
-                                     alt="Игра на JavaScript"
+                                     alt="JavaScript игра - интерактивное браузерное приложение"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">🎮 JavaScript игра</h3>
+                            <h2 class="project-title">🎮 JavaScript игра</h2>
                             <p class="project-description">Интерактивная браузерная игра с физикой, анимациями и системой достижений</p>
                             <div class="project-tech">⚡ JavaScript, Canvas API, Web Audio</div>
                             <div class="project-status">🔄 В разработке</div>
-                        </div>
+                        </article>
 
-                        <div class="project-card" data-category="react">
+                        <article class="project-card" data-category="react">
                             <div class="project-image">
                                 <img src="../images/project6.jpg"
-                                     alt="React Dashboard"
+                                     alt="React Dashboard - панель управления с аналитикой"
                                      width="400" height="225"
                                      loading="lazy" 
                                      decoding="async"
                                      class="project-photo">
                             </div>
-                            <h3 class="project-title">📊 React Dashboard</h3>
+                            <h2 class="project-title">📊 React Dashboard</h2>
                             <p class="project-description">Панель управления с графиками, статистикой и адаптивным интерфейсом</p>
                             <div class="project-tech">🔮 React, Chart.js, Material-UI</div>
                             <div class="project-status">📅 Планируется</div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
             <p class="footer-subtitle">🎯 Портфолио разработчика</p>
@@ -161,9 +223,13 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     // Убираем активный класс у всех кнопок
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
                     // Добавляем активный класс текущей кнопке
                     this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
                     
                     const filter = this.getAttribute('data-filter');
                     
@@ -187,5 +253,4 @@
         });
     </script>
 </body>
-
 </html>
