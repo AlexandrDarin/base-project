@@ -55,7 +55,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(255, 0, 0, 0.03) 0%, transparent 50%);
@@ -64,15 +64,20 @@ body::before {
 }
 
 @keyframes backgroundShift {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
+
     25% {
         transform: translate(-10px, -10px) scale(1.02);
     }
+
     50% {
         transform: translate(10px, 10px) scale(1.01);
     }
+
     75% {
         transform: translate(-5px, 5px) scale(1.03);
     }
@@ -98,9 +103,12 @@ body::before {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px) rotate(0deg);
     }
+
     50% {
         transform: translateY(-20px) rotate(180deg);
     }
@@ -130,18 +138,21 @@ body::before {
 }
 
 .skip-link:focus,
-.skip-link:focus-visible { 
-    top: 1rem; 
+.skip-link:focus-visible {
+    top: 1rem;
 }
 
 /* Улучшенный фокус */
-:focus-visible { 
-    outline: 3px solid var(--accent-color); 
-    outline-offset: 2px; 
+:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
-a, button, input, textarea { 
-    outline-offset: 2px; 
+a,
+button,
+input,
+textarea {
+    outline-offset: 2px;
 }
 
 /* Кнопка переключения темы */
@@ -184,7 +195,7 @@ a, button, input, textarea {
     border-bottom: 1px solid var(--glass-effect);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    
+
     /* Safe areas для вырезов */
     padding-top: calc(1rem + env(safe-area-inset-top, 0px));
     padding-left: calc(20px + env(safe-area-inset-left, 0px));
@@ -213,11 +224,14 @@ a, button, input, textarea {
 }
 
 @keyframes logoPulse {
-    0%, 100% { 
+
+    0%,
+    100% {
         transform: scale(1) rotate(0deg);
         text-shadow: var(--neon-glow);
     }
-    50% { 
+
+    50% {
         transform: scale(1.1) rotate(5deg);
         text-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
     }
@@ -298,8 +312,15 @@ main {
 }
 
 @keyframes shine {
-    0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+
+    0%,
+    100% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    50% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .hero-content {
@@ -345,8 +366,13 @@ main {
 }
 
 @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .profile-image:hover {
@@ -388,8 +414,13 @@ main {
 }
 
 @keyframes titleGlow {
-    from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
-    to { text-shadow: 0 0 30px rgba(255, 0, 0, 0.8); }
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    }
 }
 
 .hero-text p {
@@ -405,7 +436,10 @@ main {
 }
 
 /* Стеклянные карточки */
-.skills, .projects, .diary, .contacts {
+.skills,
+.projects,
+.diary,
+.contacts {
     background: var(--card-bg);
     padding: 80px 0;
     margin: 40px 0;
@@ -418,7 +452,10 @@ main {
     overflow: hidden;
 }
 
-.skills::before, .projects::before, .diary::before, .contacts::before {
+.skills::before,
+.projects::before,
+.diary::before,
+.contacts::before {
     content: '';
     position: absolute;
     top: 0;
@@ -452,8 +489,17 @@ main {
 }
 
 @keyframes linePulse {
-    0%, 100% { width: 100px; opacity: 1; }
-    50% { width: 150px; opacity: 0.7; }
+
+    0%,
+    100% {
+        width: 100px;
+        opacity: 1;
+    }
+
+    50% {
+        width: 150px;
+        opacity: 0.7;
+    }
 }
 
 /* Навыки с анимацией */
@@ -538,7 +584,7 @@ main {
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     }
-    
+
     @container (min-width: 800px) {
         .projects-grid {
             grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
@@ -586,7 +632,7 @@ main {
 
 .project-card:hover {
     transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 
+    box-shadow:
         var(--neon-glow),
         0 25px 50px rgba(0, 0, 0, 0.3);
 }
@@ -715,7 +761,8 @@ main {
 }
 
 /* Специальные блоки */
-.specialization, .motto {
+.specialization,
+.motto {
     margin: 30px 0;
     padding: 25px;
     border-left: 4px solid var(--accent-color);
@@ -724,19 +771,22 @@ main {
     transition: all 0.4s ease;
 }
 
-.specialization:hover, .motto:hover {
+.specialization:hover,
+.motto:hover {
     transform: translateX(10px);
     box-shadow: var(--neon-glow);
 }
 
-.specialization h3, .motto h3 {
+.specialization h3,
+.motto h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: var(--accent-color);
     font-weight: 600;
 }
 
-.specialization p, .motto p {
+.specialization p,
+.motto p {
     font-size: 1.1rem;
     margin: 0;
     font-style: italic;
@@ -754,7 +804,7 @@ main {
     border-top: 1px solid var(--glass-effect);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    
+
     /* Safe area для жестовых панелей */
     padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
 }
@@ -779,7 +829,8 @@ main {
     margin-top: 40px;
 }
 
-.progress-list, .current-courses {
+.progress-list,
+.current-courses {
     background: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
@@ -790,7 +841,8 @@ main {
     transition: all 0.4s ease;
 }
 
-.progress-list:hover, .current-courses:hover {
+.progress-list:hover,
+.current-courses:hover {
     transform: translateY(-10px);
     box-shadow: var(--neon-glow);
 }
@@ -900,7 +952,8 @@ main {
     margin-top: 40px;
 }
 
-.contact-form, .contact-info {
+.contact-form,
+.contact-info {
     background: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
@@ -911,12 +964,14 @@ main {
     transition: all 0.4s ease;
 }
 
-.contact-form:hover, .contact-info:hover {
+.contact-form:hover,
+.contact-info:hover {
     transform: translateY(-10px);
     box-shadow: var(--neon-glow);
 }
 
-.form-title, .info-title {
+.form-title,
+.info-title {
     font-size: 1.5rem;
     margin-bottom: 30px;
     color: var(--primary-color);
@@ -1007,53 +1062,53 @@ main {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .profile-image {
         width: 180px;
         height: 180px;
     }
-    
+
     .hero-text h1 {
         font-size: 2.2rem;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .nav-list {
         gap: 15px;
     }
-    
+
     .nav-link {
         padding: 8px 15px;
         font-size: 0.9rem;
     }
-    
+
     .diary-content,
     .contacts-content {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
-    .progress-list, 
+
+    .progress-list,
     .current-courses,
     .contact-form,
     .contact-info {
         padding: 25px;
     }
-    
+
     .progress-item {
         flex-direction: column;
         text-align: center;
         gap: 10px;
     }
-    
+
     .progress-date,
     .progress-task {
         margin: 0;
     }
-    
+
     .contact-item {
         flex-direction: column;
         text-align: center;
@@ -1150,12 +1205,14 @@ main {
 }
 
 /* Упрощаем специальные блоки */
-.specialization, .motto {
+.specialization,
+.motto {
     transform: none !important;
     transition: box-shadow 0.3s ease !important;
 }
 
-.specialization:hover, .motto:hover {
+.specialization:hover,
+.motto:hover {
     transform: translateX(10px) !important;
     box-shadow: var(--neon-glow);
 }
@@ -1193,7 +1250,7 @@ main {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    
+
     .skill-progress,
     .project-card,
     .profile-image,
@@ -1206,15 +1263,16 @@ main {
 
 /* Повышенный контраст */
 @media (prefers-contrast: more) {
+
     .nav-link,
     .btn {
         border: 2px solid var(--primary-color);
     }
-    
+
     .skill-progress {
         background: var(--primary-color) !important;
     }
-    
+
     .project-card {
         border: 2px solid var(--primary-color);
     }
@@ -1222,12 +1280,13 @@ main {
 
 /* Минимальная зона клика для touch устройств */
 @media (pointer: coarse) {
+
     .nav-link,
     .btn {
         min-height: 44px;
         padding: 12px 20px;
     }
-    
+
     .theme-toggle {
         min-width: 44px;
         min-height: 44px;
@@ -1247,7 +1306,7 @@ main {
     .skill-progress {
         background: var(--primary-color) !important;
     }
-    
+
     .project-card {
         border: 2px solid var(--primary-color);
     }
@@ -1259,6 +1318,7 @@ main {
         transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 }
+
 /* ===== СТИЛИ ДЛЯ ПРАКТИЧЕСКОГО ЗАНЯТИЯ 16 ===== */
 
 /* Улучшенные адаптивные изображения */
@@ -1548,36 +1608,37 @@ main {
     .projects-filters {
         gap: 0.5rem;
     }
-    
+
     .filter-btn {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
         gap: 0.5rem;
     }
-    
+
     .form-group input,
     .form-group textarea,
     .form-group select {
         padding: 0.75rem;
-        font-size: 16px; /* Предотвращает масштабирование в iOS */
+        font-size: 16px;
+        /* Предотвращает масштабирование в iOS */
     }
-    
+
     .checkbox-group {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    
+
     .tech-table th,
     .tech-table td {
         padding: 0.75rem 0.5rem;
         font-size: 0.9rem;
     }
-    
+
     /* Упрощаем таблицу на мобильных */
     .tech-table thead th:nth-child(3),
     .tech-table tbody td:nth-child(3) {
@@ -1590,37 +1651,37 @@ main {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .filter-btn {
         width: 200px;
         text-align: center;
     }
-    
+
     .form-group input,
     .form-group textarea,
     .form-group select {
         padding: 0.5rem;
     }
-    
+
     /* Полностью меняем таблицу на карточки на очень маленьких экранах */
     .table-responsive {
         border: none;
         background: none;
     }
-    
+
     .tech-table {
         display: block;
         min-width: auto;
     }
-    
+
     .tech-table thead {
         display: none;
     }
-    
+
     .tech-table tbody {
         display: block;
     }
-    
+
     .tech-table tr {
         display: block;
         margin-bottom: 1rem;
@@ -1629,7 +1690,7 @@ main {
         padding: 1rem;
         border: 1px solid var(--glass-effect);
     }
-    
+
     .tech-table td {
         display: block;
         text-align: right;
@@ -1637,7 +1698,7 @@ main {
         border: none;
         position: relative;
     }
-    
+
     .tech-table td::before {
         content: attr(data-label);
         position: absolute;
@@ -1656,19 +1717,20 @@ main {
 
 /* Адаптивность для печати */
 @media print {
+
     .projects-filters,
     .form,
     .theme-toggle,
     .skip-link {
         display: none;
     }
-    
+
     .project-card {
         break-inside: avoid;
         box-shadow: none;
         border: 1px solid #ccc;
     }
-    
+
     .tech-table {
         break-inside: avoid;
     }
@@ -1680,7 +1742,7 @@ main {
         min-height: 44px;
         padding: 12px 20px;
     }
-    
+
     .form-group input,
     .form-group textarea,
     .form-group select {
@@ -1690,6 +1752,7 @@ main {
 
 /* Поддержка prefers-reduced-motion для форм */
 @media (prefers-reduced-motion: reduce) {
+
     .form-group input,
     .form-group textarea,
     .form-group select,
@@ -1730,6 +1793,7 @@ main {
     transform: translateY(-50%);
     font-size: 0.8em;
 }
+
 /* ===== ДОПОЛНЕНИЯ ДЛЯ A11Y ===== */
 
 /* Улучшенные стили для доступности */
@@ -1900,12 +1964,13 @@ textarea[aria-invalid="false"]:valid {
 
 /* Контрастные улучшения для режима высокой контрастности */
 @media (prefers-contrast: high) {
+
     .btn,
     .nav-link,
     .form-control {
         border-width: 2px;
     }
-    
+
     .skill-progress {
         border: 1px solid currentColor;
     }
@@ -1918,7 +1983,7 @@ textarea[aria-invalid="false"]:valid {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    
+
     .skill-progress,
     .project-card,
     .profile-image {
@@ -1928,6 +1993,7 @@ textarea[aria-invalid="false"]:valid {
 
 /* Улучшения для touch устройств */
 @media (pointer: coarse) {
+
     .btn,
     .nav-link,
     .filter-btn {
@@ -1937,30 +2003,32 @@ textarea[aria-invalid="false"]:valid {
         align-items: center;
         justify-content: center;
     }
-    
+
     .form-control {
-        font-size: 16px; /* Предотвращает масштабирование в iOS */
+        font-size: 16px;
+        /* Предотвращает масштабирование в iOS */
         padding: 12px 16px;
     }
 }
 
 /* Улучшенная печать */
 @media print {
+
     .theme-toggle,
     .skip-link,
     .nav,
     .form {
         display: none !important;
     }
-    
+
     .contact-info {
         break-inside: avoid;
     }
-    
+
     .tech-table {
         border: 1px solid #000;
     }
-    
+
     .tech-table th {
         background: #f0f0f0 !important;
         color: #000 !important;
@@ -1992,13 +2060,13 @@ legend {
     fieldset {
         padding: 1rem;
     }
-    
+
     .form-hint-group {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.25rem;
     }
-    
+
     .char-count {
         align-self: flex-end;
     }
@@ -2014,6 +2082,7 @@ legend {
     outline: 2px solid var(--accent-color);
     outline-offset: 1px;
 }
+
 /* Дополнения к styles.css для Lighthouse */
 
 /* Улучшения для Lighthouse Accessibility */
@@ -2130,16 +2199,17 @@ img[src] {
 
 /* Улучшения для печати */
 @media print {
+
     .theme-toggle,
     .nav,
     .form {
         display: none !important;
     }
-    
+
     .contact-info {
         break-inside: avoid;
     }
-    
+
     .skills-table {
         border: 1px solid #000;
     }
@@ -2147,13 +2217,14 @@ img[src] {
 
 /* Улучшения для мобильных устройств */
 @media (max-width: 768px) {
+
     .contact-item,
     .response-item {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
     }
-    
+
     .hint-group {
         flex-direction: column;
         align-items: flex-start;
@@ -2172,12 +2243,184 @@ img[src] {
 
 /* Улучшения контраста для высокой контрастности */
 @media (prefers-contrast: high) {
+
     .btn,
     .nav-link {
         border-width: 2px;
     }
-    
+
     .form-control {
         border-width: 2px;
+    }
+}
+
+/* Стили для React трекера технологий */
+.react-tracker {
+    padding: 80px 0;
+}
+
+.react-app {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Progress Header */
+.progress-header {
+    background: var(--card-bg);
+    color: var(--primary-color);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border: 1px solid var(--glass-effect);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+}
+
+.progress-header h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.progress-header__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progress-percentage {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.progress-bar {
+    height: 12px;
+    background: var(--glass-effect);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 6px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Technology Cards */
+.technologies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.technology-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-effect);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.technology-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow);
+    border-color: var(--accent-color);
+}
+
+.technology-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.technology-card__title {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.technology-card__status-icon {
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.technology-card__description {
+    color: var(--text-color);
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.technology-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--glass-effect);
+}
+
+.technology-card__status {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.technology-card__status--completed {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.technology-card__status--in-progress {
+    background: rgba(255, 165, 0, 0.1);
+    color: #ffa500;
+}
+
+.technology-card__status--not-started {
+    background: rgba(100, 149, 237, 0.1);
+    color: #6495ed;
+}
+
+.technology-card__hint {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .progress-header {
+        padding: 20px;
+    }
+
+    .progress-header__stats {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .technology-card__header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .technology-card__status-icon {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+
+    .technology-card__footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
     }
 }

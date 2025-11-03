@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер технологий - Дарьин Александр</title>
+    <meta name="description"
+        content="Трекер изучения технологий - отслеживание прогресса в изучении React, JavaScript и других технологий">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+    <button class="theme-toggle" aria-label="Переключить цветовую тему" aria-pressed="false">
+        <span aria-hidden="true">🌙</span>
+    </button>
+
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon" aria-hidden="true">🚀</span>
+                    <span class="logo-text">Дарьин Александр</span>
+                </a>
+                <nav class="nav" aria-label="Основная навигация">
+                    <ul class="nav-list" role="menubar">
+                        <li role="none">
+                            <a href="../index.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">🏠</span>
+                                Главная
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="projects.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">💼</span>
+                                Проекты
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="diary.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📚</span>
+                                Дневник
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="contacts.html" class="nav-link" role="menuitem">
+                                <span aria-hidden="true">📞</span>
+                                Контакты
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="technology-tracker.html" class="nav-link active" role="menuitem"
+                                aria-current="page">
+                                <span aria-hidden="true">⚛️</span>
+                                Трекер технологий
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                </a>
+                </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main" tabindex="-1">
+        <section class="react-tracker" aria-labelledby="tracker-heading">
+            <div class="container">
+                <h1 id="tracker-heading" class="section-title">
+                    <span aria-hidden="true">⚛️</span>
+                    Трекер изучения технологий
+                </h1>
+                <div id="react-root"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 Дарьин Александр. Все права защищены.</p>
+            <p class="footer-subtitle">🎯 Портфолио разработчика</p>
+        </div>
+    </footer>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- React Components -->
+    <script type="text/babel" src="../src/components/TechnologyCard.js"></script>
+    <script type="text/babel" src="../src/App.js"></script>
+
+    <script type="text/babel">
+        // Инициализация React приложения
+        const root = ReactDOM.createRoot(document.getElementById('react-root'));
+        root.render(React.createElement(App));
+
+        // Инициализация темы из основного сайта
+        initializeThemeManager();
+    </script>
+</body>
+
+</html>
